@@ -16,12 +16,12 @@
 Перейдите в папку с решением и выполните:
 
 ```bash
-chmod +x bash/setup_cron.sh
-sudo bash/setup_cron.sh
+chmod +x bash/create_cron.sh
+sudo bash/create_cron.sh
 ```
 
 ### Salt State
-Файл salt/test_cron.sls написан для использования в инфраструктуре SaltStack, которую использует ALD Pro.  
+Файл salt/create_cron.sls написан для использования в инфраструктуре SaltStack, которую использует ALD Pro.  
 Если у вас настроен salt-master, просто скопируйте файл в /srv/salt/states/ и примените:
 
 ```bash
