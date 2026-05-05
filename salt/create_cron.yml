@@ -1,0 +1,33 @@
+/etc/cron.d/test_cron:
+  file.managed:
+    - contents: |
+        # Cron job: test_cron
+        # Managed by Salt - DO NOT EDIT MANUALLY
+        # Created: {{ salt['cmd.run']('date "+%Y-%m-%d %H:%M:%S"') }}
+        
+        SHELL=/bin/bash
+        PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+        
+        # Запуск каждые 5 минут от имени root
+        # Записывает время выполнения в /tmp/runtime.txt
+        */5 * * * * root echo "Job executed at: $(date '+%Y-%m-%d %H:%M:%S')" >> /tmp/runtime.txt 2>&1
+    
+    - user: root
+    - group: root
+    - mode: '0644'
+    - create: True
+    - backup: minion
+    - context:
+        config_type: cron
+
+
+cron_service_running:
+  service.running:
+    - name: cron
+    - enable: True
+    - require:
+      - file: /etc/cron.d/test_cron
+    - names:
+      - cron
+      - crond
+
