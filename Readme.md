@@ -84,4 +84,4 @@ P.S.
 
 Сделано для команды ALD Pro
 
-Мой тг: [@mohnatiy_perforator3000](https://t.me/mohnatiy_perforator3000)
+Мой тг: [@mohnatiy_perforator3000](https://t.me/souriape)
